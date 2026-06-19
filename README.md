@@ -112,7 +112,7 @@ LangChain adalah framework open-source yang dirancang untuk mempermudah pembuata
 | **Chains** | Rangkaian operasi berurutan | `prompt \| llm \| StrOutputParser()` |
 | **Tools** | Fungsi yang dipanggil agent | `@tool` decorator di `tools.py` |
 | **Output Parsing** | Memproses output LLM | `StrOutputParser` |
-
+```
 **Kode Contoh:**
 ```python
 from langchain_core.prompts import ChatPromptTemplate
@@ -130,8 +130,8 @@ chain = prompt | self.llm | StrOutputParser()
 
 # Eksekusi
 response = chain.invoke({})
-
-### 2. LangGraph
+```
+###2. LangGraph
 Pengertian:
 LangGraph adalah framework untuk membangun workflow AI yang stateful dan kompleks menggunakan konsep graph.
 
@@ -143,8 +143,8 @@ Penerapan di Project:
 | Nodes       | Fungsi pemroses state          | `classify_intent`, `_process`                |
 | Edges       | Penghubung antar node          | `add_conditional_edges`                      |
 | MemorySaver | Menyimpan state antar sesi     | `MemorySaver()`                              |
-
-Alur Graph:
+```
+```Alur Graph:
 User Input → classify_intent → routing → 
   product → product_inquiry → general_response
   order → general_response (dengan pending approval)
@@ -152,9 +152,9 @@ User Input → classify_intent → routing →
   recommend → recommendation → END
   approve/reject → general_response → END
   general → general_response → END
-
+```
 Kode Contoh:
-from langgraph.graph import StateGraph, END
+```from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 
 # Definisi State
@@ -186,7 +186,7 @@ workflow.add_conditional_edges(
 
 # Compile dengan MemorySaver
 self.workflow = workflow.compile(checkpointer=MemorySaver())
-
+```
 ### 3. LangSmith
 Pengertian:
 LangSmith adalah platform untuk debugging, evaluasi, dan monitoring aplikasi LLM.
@@ -197,22 +197,23 @@ Penerapan di Project:
 | Tracing            | Merekam setiap langkah eksekusi | `@traceable` decorator                  |
 | Project Management | Mengelompokkan trace            | `LANGSMITH_PROJECT=sales-agent-project` |
 | Monitoring         | Dashboard real-time             | LangSmith dashboard                     |
-
-Konfigurasi .env:
+```
+```Konfigurasi .env:
 LANGSMITH_API_KEY=lsv2_pt_xxxxxxxxxx
 LANGSMITH_TRACING_V2=true
 LANGSMITH_PROJECT=sales-agent-project
-
+```
 Kode Contoh:
-from langsmith import Client, traceable
+```from langsmith import Client, traceable
 
 @traceable(name="process_with_tools", project_name="sales-agent-project")
 def process_with_tools(self, user_input: str) -> str:
     # Fungsi ini akan otomatis di-trace
     return self._process(user_input)
-
-Tracking Eksekusi AI:
+```
+```Tracking Eksekusi AI:
 https://gambar/tracking%2520eksekusi%2520AI.png
+```
 
 ### 4. Integrasi Ketiga Library
 ┌─────────────────────────────────────────────────────────────┐
@@ -236,28 +237,28 @@ https://gambar/tracking%2520eksekusi%2520AI.png
 | LangChain | Foundation (Plan)      | Komponen dasar: prompt, model, tools |
 | LangGraph | Orchestrator (Execute) | Alur kerja dan state management      |
 | LangSmith | Observer (Observe)     | Tracing, evaluasi, monitoring        |
-
-📊 Diagram Alur Sistem
+```
+```📊 Diagram Alur Sistem
 https://gambar/alur%2520sistem.png
-
-Alur Proses:
+```
+```Alur Proses:
 User Input → Streamlit UI → Graph Workflow → classify_intent → 
 Intent Routing → Node Processing → Sales Agent → 
 Tools / LLM / Database → Response → User
-
-Alur Order & Approval:
+```
+```Alur Order & Approval:
 User: "saya mau beli produk X" → Buat Order → pending_approval → 
 User: "approve" → Update Status: approved → Response: "Pesanan berhasil"
-
-🚀 Cara Menjalankan
+```
+```🚀 Cara Menjalankan
 Prasyarat
 | No | Software     | Keterangan         |
 | -- | ------------ | ------------------ |
 | 1  | Python 3.10+ | Bahasa pemrograman |
 | 2  | Ollama       | Local LLM          |
 | 3  | Git          | Version control    |
-
-Langkah-langkah
+```
+```Langkah-langkah
 # 1. Clone repository
 git clone https://github.com/username/sales-agent-project.git
 cd sales-agent-project
@@ -279,8 +280,8 @@ ollama serve
 
 # 7. Jalankan aplikasi
 streamlit run streamlit_app.py
-
-📁 Struktur Folder
+```
+```📁 Struktur Folder
 SALES-AGENT-PROJECT/
 │
 ├── .streamlit/                            # Konfigurasi Streamlit
@@ -321,8 +322,8 @@ SALES-AGENT-PROJECT/
 ├── requirements.txt                       # Dependencies
 ├── setup_database.py                      # Setup database
 └── streamlit_app.py                       # UI utama
-
-👨‍💻 Author
+```
+```👨‍💻 Author
 | Identitas   | Keterangan                            |
 | ----------- | ------------------------------------- |
 | Nama        | Muhammad Aidhil                       |
@@ -330,8 +331,8 @@ SALES-AGENT-PROJECT/
 | Kelas       | NLP (Natural Language Processing - C) |
 | Universitas | Universitas Islam Riau                |
 | Email       | [Email]                               |
-
-📄 License
+```
+```📄 License
 MIT License
 
 Copyright (c) 2026 Muhammad Aidhil
@@ -353,8 +354,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-📚 Referensi
+```
+```📚 Referensi
 LangChain Documentation
 
 LangGraph Documentation
@@ -366,3 +367,4 @@ Ollama
 Streamlit
 
 Terima kasih telah mengunjungi repository ini! 🚀😊
+```
