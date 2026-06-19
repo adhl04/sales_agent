@@ -216,22 +216,18 @@ https://gambar/tracking%2520eksekusi%2520AI.png
 ```
 
 ### 4. Integrasi Ketiga Library
-┌─────────────────────────────────────────────────────────────┐
-│                    SIKLUS PLAN - EXECUTE - OBSERVE          │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│   ┌──────────────┐      ┌──────────────┐                   │
-│   │   LangChain   │      │   LangGraph  │                   │
-│   │   (Plan)      │ ───▶ │   (Execute)  │                   │
-│   └──────────────┘      └──────────────┘                   │
-│          │                      │                           │
-│          ▼                      ▼                           │
-│   ┌──────────────────────────────────────┐                  │
-│   │         LangSmith (Observe)          │                  │
-│   │   Tracing  │  Evaluasi  │  Monitoring│                  │
-│   └──────────────────────────────────────┘                  │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+### 4. Integrasi Ketiga Library
+```
+| Library | Peran | Fungsi Utama |
+|---------|------|--------------|
+| **LangChain** | Plan (Perencanaan) | Prompts, LLMs, Chains, Tools |
+| **LangGraph** | Execute (Eksekusi) | State, Nodes, Edges, MemorySaver |
+| **LangSmith** | Observe (Observasi) | Tracing, Evaluasi, Monitoring |
+
+**Siklus Plan - Execute - Observe:**
+
+Plan (LangChain) → Execute (LangGraph) → Observe (LangSmith)
+```
 | Library   | Peran                  | Fungsi                               |
 | --------- | ---------------------- | ------------------------------------ |
 | LangChain | Foundation (Plan)      | Komponen dasar: prompt, model, tools |
@@ -239,7 +235,7 @@ https://gambar/tracking%2520eksekusi%2520AI.png
 | LangSmith | Observer (Observe)     | Tracing, evaluasi, monitoring        |
 ```
 ```📊 Diagram Alur Sistem
-https://gambar/alur%2520sistem.png
+gambar/alur%20sistem.png
 ```
 ```Alur Proses:
 User Input → Streamlit UI → Graph Workflow → classify_intent → 
