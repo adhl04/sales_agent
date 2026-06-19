@@ -351,6 +351,51 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+📋 ALUR LENGKAP
+STEP 1: Clone Repository
+```
+git clone https://github.com/username/sales-agent-project.git
+cd sales-agent-project
+```
+STEP 2: Buat Virtual Environment
+```
+# Windows
+python -m venv venv
+
+# Mac/Linux
+python3 -m venv venv
+```
+STEP 3: Aktivasi Virtual Environment
+```
+# Windows (Command Prompt)
+venv\Scripts\activate
+
+# Windows (PowerShell)
+venv\Scripts\Activate.ps1
+
+# Mac/Linux
+source venv/bin/activate
+```
+STEP 4: Install Dependencies
+```
+pip install -r requirements.txt
+```
+STEP 5: Setup Database
+```
+python setup_database.py
+```
+STEP 6: Jalankan Ollama
+```
+ollama serve
+```
+STEP 7: Jalankan Aplikasi Streamlit
+```
+streamlit run streamlit_app.py
+```
+STEP 8: Buka Browser
+```
+http://localhost:8501
+```
 ```📚 Referensi
 LangChain Documentation
 
