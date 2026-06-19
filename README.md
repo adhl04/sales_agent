@@ -131,7 +131,7 @@ chain = prompt | self.llm | StrOutputParser()
 # Eksekusi
 response = chain.invoke({})
 
-2. LangGraph
+### 2. LangGraph
 Pengertian:
 LangGraph adalah framework untuk membangun workflow AI yang stateful dan kompleks menggunakan konsep graph.
 
@@ -187,7 +187,7 @@ workflow.add_conditional_edges(
 # Compile dengan MemorySaver
 self.workflow = workflow.compile(checkpointer=MemorySaver())
 
-3. LangSmith
+### 3. LangSmith
 Pengertian:
 LangSmith adalah platform untuk debugging, evaluasi, dan monitoring aplikasi LLM.
 
@@ -214,7 +214,7 @@ def process_with_tools(self, user_input: str) -> str:
 Tracking Eksekusi AI:
 https://gambar/tracking%2520eksekusi%2520AI.png
 
-4. Integrasi Ketiga Library
+### 4. Integrasi Ketiga Library
 ┌─────────────────────────────────────────────────────────────┐
 │                    SIKLUS PLAN - EXECUTE - OBSERVE          │
 ├─────────────────────────────────────────────────────────────┤
